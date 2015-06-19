@@ -1,5 +1,5 @@
 class stacktach::profile::winchester (
-  $ensure         = 'latest",
+  $ensure         = 'latest',
   $service_manage = true,
   $service_ensure = true,
 ) {
