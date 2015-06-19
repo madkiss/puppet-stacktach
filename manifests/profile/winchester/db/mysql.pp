@@ -50,5 +50,13 @@ class stacktach::profile::winchester::db::mysql(
     allowed_hosts => $allowed_hosts,
   }
 
-  ::Openstacklib::Db::Mysql['winchesterdb'] ~> Exec<| title == "winchester_db -c $config_file upgrade head" |>
+  exec { "winchesterdb":
+    command     => "winchester_db -c $config_file upgrade head",
+    provider    => shell,
+    refreshonly => true,
+    logoutput   => on_failure,
+    require     => File["$config_file"],
+    subscribe   => Openstacklib::Db::Mysql['winchesterdb'],
+  }
+
 }
