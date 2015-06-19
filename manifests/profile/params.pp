@@ -1,5 +1,5 @@
 # This is a generic parameter class to ensure proper package
-# installation and service manage across different platforms. 
+# installation and service manage across different platforms.
 
 class stacktach::profile::params {
 
@@ -11,7 +11,7 @@ class stacktach::profile::params {
 
       $winchester_package_name = 'winchester'
       $winchester_service_name = 'pipeline_worker'
-      
+
       $quincy_package_name     = 'quincy'
       $quincy_service_name     = 'quincy
     }
