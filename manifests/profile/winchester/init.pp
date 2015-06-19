@@ -3,8 +3,10 @@ class stacktach::profile::winchester (
   $service_manage = $stacktach::profile::params::winchester_service_manage,
   $service_ensure = $stacktach::profile::params::winchester_service_ensure,
 ) inherits stacktach::profile::params {
-   package {"$stacktach::profile::params::winchester_package_name":
-    ensure => $ensure,
+
+  package {"$stacktach::profile::params::winchester_package_name":
+    ensure  => $ensure,
+    require => Class[stacktach::profile::repos],
   }
 
   if $service_manage {
