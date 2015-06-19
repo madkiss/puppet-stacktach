@@ -14,13 +14,12 @@ class stacktach::profile::winchester (
   }
 
   file { "$config_file":
-      content => template("${module_name}/winchester.yaml.erb"),
-      owner   => 'root',
-      group   => 'root',
-      mode    => '0644',
-      before  => Service["$stacktach::profile::params::winchester_package_name"],
-      notify  => Service["$stacktach::profile::params::winchester_package_name"],
-    }
+    content => template("${module_name}/winchester.yaml.erb"),
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0644',
+    before  => Service["$stacktach::profile::params::winchester_package_name"],
+    notify  => Service["$stacktach::profile::params::winchester_package_name"],
   }
 
   package { "$stacktach::profile::params::winchester_package_name":
