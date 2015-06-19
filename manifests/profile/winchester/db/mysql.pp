@@ -1,4 +1,4 @@
-# The stacktach::profile::winchester::db::mysql class creates a 
+# The stacktach::profile::winchester::db::mysql class creates a
 # MySQL database for glance. It must be used on the MySQL server.
 #
 # == Parameters
