@@ -1,8 +1,8 @@
 class stacktach::profile::winchester (
-  $ensure         = $stacktach::profile::params::winchester_package_ensure,
-  $service_manage = $stacktach::profile::params::winchester_service_manage,
-  $service_ensure = $stacktach::profile::params::winchester_service_ensure,
-) inherits stacktach::profile::params {
+  $ensure         = 'latest",
+  $service_manage = true,
+  $service_ensure = true,
+) {
 
   package {"$stacktach::profile::params::winchester_package_name":
     ensure  => $ensure,

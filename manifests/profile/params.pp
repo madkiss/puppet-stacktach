@@ -13,9 +13,6 @@ class stacktach::profile::params (
 
           $winchester_package_name   = 'winchester'
           $winchester_service_name   = 'pipeline_worker'
-          $winchester_package_ensure = 'latest'
-          $winchester_service_manage = true
-          $winchester_service_ensure = true
 
           $quincy_package_name       = 'quincy'
           $quincy_service_name       = 'quincy'
