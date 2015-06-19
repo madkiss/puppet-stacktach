@@ -6,8 +6,6 @@ class stacktach::profile::winchester (
   $config_file    = '/etc/winchester/winchester.yaml',
 ) {
 
-  Exec<| title == "winchester -c $config_file upgrade head" |> ~> Service["$stacktach::profile::params::winchester_service_name"]
-
   if $db_type == 'mysql' {
     $db_user     = $stacktach::profile::winchester::db::mysql::user
     $db_password = $stacktach::profile::winchester::db::mysql::password
