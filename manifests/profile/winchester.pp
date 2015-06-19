@@ -17,5 +17,6 @@ class stacktach::profile::winchester (
       hasstatus  => true,
       hasrestart => true,
       require    => Package["$stacktach::profile::params::winchester_package_name"],
+    }
   }
 }
