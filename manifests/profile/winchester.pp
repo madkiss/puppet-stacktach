@@ -22,6 +22,15 @@ class stacktach::profile::winchester (
     notify  => Service["$stacktach::profile::params::winchester_service_name"],
   }
 
+  exec { "winchesterdb":
+    command     => "winchester_db -c $config_file upgrade head",
+    provider    => shell,
+    refreshonly => true,
+    logoutput   => on_failure,
+    require     => File["$config_file"],
+    subscribe   => Openstacklib::Db::Mysql['winchesterdb'],
+  }
+
   package { "$stacktach::profile::params::winchester_package_name":
     ensure  => $ensure,
     require => Class[stacktach::profile::repos],

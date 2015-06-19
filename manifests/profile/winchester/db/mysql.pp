@@ -36,7 +36,6 @@ class stacktach::profile::winchester::db::mysql(
   $charset       = 'utf8',
   $collate       = 'utf8_general_ci',
   $cluster_id    = 'localzone',
-  $config_file   = $stacktach::profile::winchester::config_file,
 ) {
   validate_string($password)
 
@@ -48,15 +47,6 @@ class stacktach::profile::winchester::db::mysql(
     charset       => $charset,
     collate       => $collate,
     allowed_hosts => $allowed_hosts,
-  }
-
-  exec { "winchesterdb":
-    command     => "winchester_db -c $config_file upgrade head",
-    provider    => shell,
-    refreshonly => true,
-    logoutput   => on_failure,
-    require     => File["$config_file"],
-    subscribe   => Openstacklib::Db::Mysql['winchesterdb'],
   }
 
 }
