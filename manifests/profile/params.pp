@@ -7,15 +7,18 @@ class stacktach::profile::params (
     'Debian': {
       case $::lsbdistcodename {
         'trusty': {
-          $yagi_package_name       = 'yagi'
-          $yagi_feed_service_name  = 'yagi-feed'
-          $yagi_event_service_name = 'yagi-event'
+          $yagi_package_name         = 'yagi'
+          $yagi_feed_service_name    = 'yagi-feed'
+          $yagi_event_service_name   = 'yagi-event'
 
-          $winchester_package_name = 'winchester'
-          $winchester_service_name = 'pipeline_worker'
+          $winchester_package_name   = 'winchester'
+          $winchester_service_name   = 'pipeline_worker'
+          $winchester_package_ensure = true,
+          $winchester_service_manage = true,
+          $winchester_service_ensure = true,
 
-          $quincy_package_name     = 'quincy'
-          $quincy_service_name     = 'quincy'
+          $quincy_package_name       = 'quincy'
+          $quincy_service_name       = 'quincy'
         }
       }
     }
