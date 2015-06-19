@@ -7,10 +7,10 @@ class stacktach::profile::winchester (
 ) {
 
   if $db_type == 'mysql' {
-    $db_user     = $stacktach::profile::winchester::db::mysql::user,
-    $db_password = $stacktach::profile::winchester::db::mysql::password,
-    $db_host     = $stacktach::profile::winchester::db::mysql::host,
-    $db_name     = $stacktach::profile::winchester::db::mysql::dbname,
+    $db_user     = $stacktach::profile::winchester::db::mysql::user
+    $db_password = $stacktach::profile::winchester::db::mysql::password
+    $db_host     = $stacktach::profile::winchester::db::mysql::host
+    $db_name     = $stacktach::profile::winchester::db::mysql::dbname
   }
 
   file { "$config_file":
