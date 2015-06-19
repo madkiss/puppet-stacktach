@@ -2,7 +2,6 @@
 # this will happen automatically unless explicitly disabled.
 
 define stacktach::profile::apt::repos (
-  $release,
 ) {
   case $::lsbdistcodename {
     'trusty': {
