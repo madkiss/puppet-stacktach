@@ -18,8 +18,8 @@ class stacktach::profile::winchester (
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    before  => Service["$stacktach::profile::params::winchester_package_name"],
-    notify  => Service["$stacktach::profile::params::winchester_package_name"],
+    before  => Service["$stacktach::profile::params::winchester_service_name"],
+    notify  => Service["$stacktach::profile::params::winchester_service_name"],
   }
 
   package { "$stacktach::profile::params::winchester_package_name":
