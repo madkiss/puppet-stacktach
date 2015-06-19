@@ -3,7 +3,9 @@
 
 class stacktach::profile::repos(
   $install_repositories = true,
-) {
+) inherits stacktach::profile::params {
+  include stacktach::profile::params
+
   case $::osfamily {
     'Debian': {
       if $install_repositories {
