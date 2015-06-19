@@ -29,14 +29,14 @@
 
 class stacktach::profile::winchester::db::mysql(
   $password,
-  $dbname                   = 'winchesterdb',
-  $user                     = 'winchester',
-  $host                     = '127.0.0.1',
-  $allowed_hosts            = undef,
-  $charset                  = 'utf8',
-  $collate                  = 'utf8_general_ci',
-  $cluster_id               = 'localzone',
-  $winchester_configuration = '/etc/winchester/winchester.yaml',
+  $dbname        = 'winchesterdb',
+  $user          = 'winchester',
+  $host          = '127.0.0.1',
+  $allowed_hosts = undef,
+  $charset       = 'utf8',
+  $collate       = 'utf8_general_ci',
+  $cluster_id    = 'localzone',
+  $config_file   = $stacktach::profile::winchester::config_file,
 ) {
   validate_string($password)
 
@@ -50,5 +50,5 @@ class stacktach::profile::winchester::db::mysql(
     allowed_hosts => $allowed_hosts,
   }
 
-  ::Openstacklib::Db::Mysql['winchesterdb'] ~> Exec<| title == "winchester_db -c $winchester_configuration upgrade head" |>
+  ::Openstacklib::Db::Mysql['winchesterdb'] ~> Exec<| title == "winchester_db -c $config_file upgrade head" |>
 }
