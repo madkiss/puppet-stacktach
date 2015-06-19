@@ -10,10 +10,10 @@ class stacktach::profile::winchester (
   if $service_manage {
     service {"$stacktach::profile::params::winchester_service_name":
       ensure     => $service_ensure,
-      name       => $stacktach::profile::params::winchester_service_name, 
+      name       => $stacktach::profile::params::winchester_service_name,
       enable     => $enabled,
       hasstatus  => true,
       hasrestart => true,
       require    => Package["$stacktach::profile::params::winchester_package_name"],
   }
-} 
+}
